@@ -152,22 +152,9 @@ A aplicação em **Streamlit** permite que o usuário:
 
 ---
 
-## 📚 Aprendizados
-
-Esse projeto me ajudou a entender de forma prática:
-
-* Diferença entre **regressão linear simples** e **múltipla**
-* Como aplicar **One-Hot Encoding** em variáveis categóricas
-* Como garantir **proporcionalidade e coerência** em modelos matemáticos
-* Como criar uma aplicação **interativa de Machine Learning**
-* Como usar o **Poetry** para gerenciar um projeto Python de forma profissional
-
----
-
 ## ✨ Autora
 
 **Marina Kally**
-📍 Desenvolvido com foco em aprendizado e prática de Machine Learning aplicado a casos reais.
 🔗 [LinkedIn](https://www.linkedin.com/in/marina-kally-695535252)
 
 
