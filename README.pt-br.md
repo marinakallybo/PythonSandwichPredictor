@@ -2,92 +2,114 @@
 
 🇺🇸 [English version](README.md)
 
-### *Um modelo de Regressão Linear para prever o preço de lanches de acordo com o tipo e o comprimento (em cm).*
+### *Um modelo de Regressão Linear para prever o preço de lanches com base no tipo e no comprimento (cm).*
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Regressão%20Linear-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
 
 ---
 
-## 💡 Ideia Principal
+## 💡 Visão Geral do Projeto
 
-Tudo começou com uma curiosidade:
+Este projeto foi desenvolvido para explorar como **Machine Learning**, especificamente **Regressão Linear**, pode ser utilizado para prever o preço de lanches com base no **tipo de lanche** e no **comprimento (cm)**.
 
-> “E se eu quisesse um lanche de 20cm ou 40cm? Quanto custaria?” 🤔
+A ideia surgiu a partir de uma curiosidade simples:
 
-Sabemos que o **Subway** trabalha com tamanhos de **15cm** e **30cm**, e em alguns casos o preço do de 30cm é **o dobro** do de 15cm.
-Então pensei:
+> *“E se eu quisesse um lanche de 20 cm ou 40 cm? Quanto ele custaria?”* 🤔
 
-> “Será que consigo criar um modelo que calcule automaticamente o preço proporcional de qualquer tamanho de lanche?”
+Muitas redes de fast-food, como o **Subway**, trabalham com tamanhos fixos (**15 cm** e **30 cm**) e, em muitos casos, os preços seguem uma lógica proporcional.
 
-Foi aí que nasceu o **Previsor de Preço de Lanches**, um projeto que une **Python + Machine Learning (Regressão Linear)** para prever o preço de diferentes tipos de lanches com base no seu comprimento.
+Pensando nisso, o projeto busca resolver esse problema criando um modelo capaz de estimar o preço de **qualquer tamanho de lanche**, mesmo quando os dados disponíveis possuem apenas tamanhos fixos.
+
+O projeto combina:
+
+* 🐍 **Python**
+* 🧠 **Machine Learning (Regressão Linear)**
+* ⚙️ **Engenharia de Features**
+* 🌐 **Interface interativa com Streamlit**
+* 📊 **Manipulação e análise de dados**
+
+---
+
+## ✨ Funcionalidades
+
+✅ Previsão de preços utilizando **Regressão Linear**
+
+✅ Suporte para diferentes categorias de lanches
+
+✅ Previsão em tempo real através de uma **interface interativa**
+
+✅ Engenharia de atributos usando **termos de interação**
+
+✅ Validação matemática da proporcionalidade dos preços
+
+✅ Testes automáticos de consistência das previsões
 
 ---
 
 ## ⚙️ Tecnologias Utilizadas
 
 * 🐍 **Python 3.11+**
-* 📦 **Pandas** — manipulação e análise dos dados
-* 🧠 **Scikit-learn** — criação e treino do modelo de regressão linear
+* 📦 **Pandas** — manipulação e pré-processamento dos dados
+* 🧠 **Scikit-Learn** — treinamento do modelo de regressão linear
 * 🌐 **Streamlit** — construção da interface web interativa
 * ⚙️ **Poetry** — gerenciamento de dependências e ambiente virtual
+* 📈 **NumPy** — cálculos e validações numéricas
 
 ---
 
 ## 💻 Como Executar o Projeto
 
-### 🔹 1. Clonar o repositório
-```bash
-git clone https://github.com/marinakallybo/Previsor-Pre-os-Lanches.git
-cd .\Previsor-Pre-os-Lanches\
-````
+### 1️⃣ Clonar o repositório
 
-### 🔹 2. Instalar o Poetry (caso ainda não tenha)
+```bash
+git clone https://github.com/marinakallybo/Python-Sandwich-Predictor.git
+cd Python-Sandwich-Predictor
+```
+
+### 2️⃣ Instalar o Poetry (caso ainda não tenha)
 
 ```bash
 pip install poetry
 ```
 
-### 🔹 3. Instalar as dependências
+### 3️⃣ Instalar as dependências
 
 ```bash
 poetry install
 ```
 
-### 🔹 4. Ativar o ambiente virtual
+### 4️⃣ Executar a aplicação
 
 ```bash
-poetry shell
-```
-
-### 🔹 5. Rodar o app
-
-```bash
-streamlit run app.py
+poetry run streamlit run app.py
 ```
 
 Após isso, o Streamlit abrirá automaticamente no navegador. 🎉
 
 ---
 
-## 🧩 Estrutura do Projeto
+## 📁 Estrutura do Projeto
 
-```
-📂 PROJETO-ML/
-├── 📁 .venv/               # Ambiente virtual (criado automaticamente pelo Poetry)
-├── 📁 src/                 # Módulos auxiliares (opcional)
-├── 📁 tests/               # Testes automáticos
-│
-├── 📄 app.py               # Aplicação principal (modelo + interface)
-├── 📄 lanches.csv          # Base de dados (lanches + preços)
-├── 📄 pyproject.toml       # Configuração do Poetry e dependências
-├── 📄 poetry.lock          # Controle de versões exatas
-└── 📄 README.md            # Documentação do projeto
+```txt
+Python-Sandwich-Predictor/
+│── app.py                # Aplicação principal em Streamlit
+│── lanches.csv           # Base de dados (lanches + preços)
+│── README.md             # Documentação do projeto
+│── pyproject.toml        # Configuração do Poetry
+│── poetry.lock           # Controle das dependências
+│── .gitignore            # Arquivos ignorados pelo Git
 ```
 
 ---
 
 ## 🍞 Conjunto de Dados
 
-O arquivo `lanches.csv` foi criado com base nos lanches do **Subway**.
-Foram selecionados **5 tipos de lanches**:
+O arquivo `lanches.csv` foi criado com base nos preços de lanches inspirados no **Subway**.
+
+Foram selecionadas as seguintes categorias:
 
 * Frango
 * Frango Teriyaki
@@ -95,66 +117,84 @@ Foram selecionados **5 tipos de lanches**:
 * Vegetariano
 * Steak Churrasco
 
-Cada lanche possui valores de **comprimento (15 e 30 cm)** e **preço proporcional**.
-O formato da base utiliza **One-Hot Encoding**, onde cada tipo de lanche é representado por uma coluna com valores 0 ou 1 — assim o modelo entende variáveis categóricas corretamente.
+Cada lanche possui:
+
+* **Comprimento (15 cm e 30 cm)**
+* **Preço proporcional**
+
+A base de dados utiliza **One-Hot Encoding**, onde cada categoria de lanche é representada por colunas binárias (`0` ou `1`), permitindo que o modelo interprete corretamente variáveis categóricas.
 
 Exemplo:
 
-| Frango | Frango Teriyaki | Carne Seca com Cream Cheese | Vegetariano | Steak Churrasco | comprimento | preço |
-| :----: | :-------------: | :-------------------------: | :---------: | :-------------: | :---------: | :---: |
-|    1   |        0        |              0              |      0      |        0        |      15     | 18.30 |
-|    1   |        0        |              0              |      0      |        0        |      30     | 36.60 |
-|    0   |        1        |              0              |      0      |        0        |      15     | 25.20 |
-|    0   |        1        |              0              |      0      |        0        |      30     | 44.10 |
+| Frango | Frango Teriyaki | Carne Seca | Vegetariano | Steak Churrasco | Comprimento | Preço |
+| ------ | --------------- | ---------- | ----------- | --------------- | ----------- | ----- |
+| 1      | 0               | 0          | 0           | 0               | 15          | 18.30 |
+| 1      | 0               | 0          | 0           | 0               | 30          | 36.60 |
+| 0      | 1               | 0          | 0           | 0               | 15          | 25.20 |
+| 0      | 1               | 0          | 0           | 0               | 30          | 44.10 |
 
 ---
 
-## 🧠 Funcionamento do Modelo
+## 🧠 Como o Modelo Funciona
 
-O modelo utiliza **Regressão Linear Composta**, garantindo que o **preço aumente proporcionalmente** ao comprimento do lanche.
-Ele cria termos de interação entre o tipo e o comprimento, como:
+O projeto utiliza **Regressão Linear Múltipla** com **features de interação** para preservar a proporcionalidade dos preços.
+
+Em vez de utilizar apenas o tipo do lanche e o comprimento separadamente, o modelo cria termos de interação como:
 
 ```python
 frango_comp = Frango * Comprimento
 ```
 
-Essas colunas permitem que o modelo aprenda quanto **cada cm de cada tipo de lanche** influencia no preço final.
+Isso permite que o algoritmo aprenda **como cada centímetro de cada categoria de lanche influencia no preço final**.
+
 O modelo é treinado com:
 
 ```python
 LinearRegression(fit_intercept=False)
 ```
 
-Isso assegura que o preço de 0 cm seja 0 — mantendo a proporcionalidade perfeita.
+Desativar o intercepto garante que:
+
+> **Um lanche de 0 cm tenha preço igual a 0.**
+
+Isso preserva a proporcionalidade matemática perfeita nas previsões.
 
 ---
 
 ## 🧪 Testes de Proporcionalidade
 
-O projeto inclui testes que verificam se o preço previsto é **idêntico** ao preço real dos dados de treino, garantindo total coerência matemática.
+A aplicação inclui testes para verificar se os preços previstos permanecem matematicamente consistentes com os dados de treino.
 
 Exemplo:
 
 | Sabor  | Comprimento (cm) | Preço Real | Preço Previsto | Diferença | Status |
-| :----- | :--------------: | :--------: | :------------: | :-------: | :----: |
-| Frango |        15        |    18.3    |      18.3      |    0.00   |    ✅   |
-| Frango |        30        |    36.6    |      36.6      |    0.00   |    ✅   |
+| ------ | ---------------- | ---------- | -------------- | --------- | ------ |
+| Frango | 15               | 18.30      | 18.30          | 0.00      | ✅      |
+| Frango | 30               | 36.60      | 36.60          | 0.00      | ✅      |
+
+O modelo utiliza:
+
+```python
+np.isclose(error, 0, atol=1e-2)
+```
+
+para validar se os erros são praticamente nulos.
 
 ---
 
 ## 💻 Interface Interativa
 
-A aplicação em **Streamlit** permite que o usuário:
+A aplicação desenvolvida com **Streamlit** permite que o usuário:
 
 ✅ Escolha o tipo de lanche
 
-✅ Digite o comprimento desejado (20 cm, 40 cm, etc.)
+✅ Informe um comprimento personalizado (**20 cm, 40 cm, etc.**)
 
-✅ Veja o preço previsto em tempo real
+✅ Visualize instantaneamente o preço previsto
 
 ---
 
-## ✨ Autora
+## 👩‍💻 Autora
 
 **Marina Kally**
 🔗 [LinkedIn](https://www.linkedin.com/in/marina-kally-695535252)

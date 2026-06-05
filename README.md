@@ -2,95 +2,114 @@
 
 🇧🇷 [Versão em Português](README.pt-br.md)
 
-### *A Linear Regression model to predict sandwich prices based on type and length (cm).*
+### *A Linear Regression model for predicting sandwich prices based on sandwich type and length (cm).*
+
+![Python](https://img.shields.io/badge/Python-3.11-blue)
+![Machine Learning](https://img.shields.io/badge/Machine%20Learning-Linear%20Regression-green)
+![Streamlit](https://img.shields.io/badge/Streamlit-App-red)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-ML-orange)
 
 ---
 
-## 💡 Main Idea
+## 💡 Project Overview
 
-Everything started with a simple curiosity:
+This project was developed to explore how **Machine Learning**, specifically **Linear Regression**, can be used to predict sandwich prices based on **sandwich type** and **length (cm)**.
 
-> “What if I wanted a 20cm or even a 40cm sandwich? How much would it cost?” 🤔
+The idea came from a simple curiosity:
 
-We know that **Subway** usually offers sandwiches in **15cm** and **30cm** sizes, and in some cases, the 30cm option costs **exactly twice** as much as the 15cm one.
+> *“What if I wanted a 20 cm or 40 cm sandwich? How much would it cost?”* 🤔
 
-That made me wonder:
+Many sandwich chains, such as **Subway**, sell products in fixed sizes (typically **15 cm** and **30 cm**), where pricing often follows a proportional pattern.
 
-> “Could I build a model capable of automatically calculating the proportional price of any sandwich size?”
+This project attempts to solve that problem by building a predictive model capable of estimating the price of **any sandwich size**, even when the dataset only contains fixed lengths.
 
-That’s how the **Sandwich Price Predictor** was born — a project that combines **Python + Machine Learning (Linear Regression)** to predict the price of different sandwich types based on their length.
+The project combines:
+
+* 🐍 **Python**
+* 🧠 **Machine Learning (Linear Regression)**
+* ⚙️ **Feature Engineering**
+* 🌐 **Interactive Web Interface with Streamlit**
+* 📊 **Data Processing and Analysis**
+
+---
+
+## ✨ Features
+
+✅ Predict sandwich prices using **Linear Regression**
+
+✅ Support for different sandwich categories
+
+✅ Real-time prediction through an **interactive Streamlit interface**
+
+✅ Feature engineering using **interaction terms**
+
+✅ Mathematical proportionality validation
+
+✅ Automated prediction testing
 
 ---
 
 ## ⚙️ Technologies Used
 
 * 🐍 **Python 3.11+**
-* 📦 **Pandas** — data manipulation and analysis
-* 🧠 **Scikit-learn** — building and training the linear regression model
+* 📦 **Pandas** — data manipulation and preprocessing
+* 🧠 **Scikit-Learn** — Linear Regression model training
 * 🌐 **Streamlit** — interactive web interface
 * ⚙️ **Poetry** — dependency and virtual environment management
+* 📈 **NumPy** — numerical validation and calculations
 
 ---
 
-## 💻 Running the Project
+## 💻 How to Run the Project
 
-### 🔹 1. Clone the repository
+### 1️⃣ Clone the repository
 
 ```bash
-git clone https://github.com/marinakallybo/Previsor-Pre-os-Lanches.git
-cd Previsor-Pre-os-Lanches
+git clone https://github.com/marinakallybo/Python-Sandwich-Predictor.git
+cd Python-Sandwich-Predictor
 ```
 
-### 🔹 2. Install Poetry (if not installed)
+### 2️⃣ Install Poetry (if not installed)
 
 ```bash
 pip install poetry
 ```
 
-### 🔹 3. Install dependencies
+### 3️⃣ Install dependencies
 
 ```bash
 poetry install
 ```
 
-### 🔹 4. Activate the virtual environment
+### 4️⃣ Run the application
 
 ```bash
-poetry shell
-```
-
-### 🔹 5. Run the app
-
-```bash
-streamlit run app.py
+poetry run streamlit run app.py
 ```
 
 After that, Streamlit will automatically open in your browser. 🎉
 
 ---
 
-## 🧩 Project Structure
+## 📁 Project Structure
 
-```text
-📂 PROJECT-ML/
-├── 📁 .venv/               # Virtual environment (created automatically by Poetry)
-├── 📁 src/                 # Helper modules (optional)
-├── 📁 tests/               # Automated tests
-│
-├── 📄 app.py               # Main application (model + interface)
-├── 📄 lanches.csv          # Dataset (sandwiches + prices)
-├── 📄 pyproject.toml       # Poetry configuration and dependencies
-├── 📄 poetry.lock          # Exact dependency versions
-└── 📄 README.md            # Project documentation
+```txt
+Python-Sandwich-Predictor/
+│── app.py                # Main Streamlit application
+│── lanches.csv           # Dataset (sandwiches + prices)
+│── README.md             # Project documentation
+│── pyproject.toml        # Poetry configuration
+│── poetry.lock           # Dependency versions
+│── .gitignore            # Ignored files
 ```
 
 ---
 
 ## 🍞 Dataset
 
-The `lanches.csv` dataset was created based on **Subway sandwiches**.
+The dataset (`lanches.csv`) was created based on sandwich pricing inspired by **Subway** products.
 
-The project includes **5 sandwich types**:
+The following sandwich categories were included:
 
 * Chicken
 * Chicken Teriyaki
@@ -98,69 +117,82 @@ The project includes **5 sandwich types**:
 * Vegetarian
 * Steak Barbecue
 
-Each sandwich contains values for **length (15cm and 30cm)** and **proportional price**.
+Each sandwich contains:
 
-The dataset uses **One-Hot Encoding**, where each sandwich type is represented as a column containing `0` or `1`. This helps the model correctly understand categorical variables.
+* **Length (15 cm and 30 cm)**
+* **Proportional pricing**
+
+The dataset uses **One-Hot Encoding**, where each sandwich category is represented by binary columns (`0` or `1`) so the model can properly understand categorical variables.
 
 Example:
 
-| Chicken | Chicken Teriyaki | Shredded Beef + Cream Cheese | Vegetarian | Steak Barbecue | Length | Price |
-| :-----: | :--------------: | :--------------------------: | :--------: | :------------: | :----: | :---: |
-|    1    |         0        |               0              |      0     |        0       |   15   | 18.30 |
-|    1    |         0        |               0              |      0     |        0       |   30   | 36.60 |
-|    0    |         1        |               0              |      0     |        0       |   15   | 25.20 |
-|    0    |         1        |               0              |      0     |        0       |   30   | 44.10 |
+| Chicken | Chicken Teriyaki | Shredded Beef | Vegetarian | Steak BBQ | Length | Price |
+| ------- | ---------------- | ------------- | ---------- | --------- | ------ | ----- |
+| 1       | 0                | 0             | 0          | 0         | 15     | 18.30 |
+| 1       | 0                | 0             | 0          | 0         | 30     | 36.60 |
+| 0       | 1                | 0             | 0          | 0         | 15     | 25.20 |
+| 0       | 1                | 0             | 0          | 0         | 30     | 44.10 |
 
 ---
 
-## 🧠 Model Logic
+## 🧠 How the Model Works
 
-The model uses **Multiple Linear Regression**, ensuring that the **price increases proportionally** to the sandwich length.
+The project uses **Multiple Linear Regression** with **interaction features** to preserve pricing proportionality.
 
-It creates interaction terms between sandwich type and length, such as:
+Instead of training only with sandwich type and length independently, the model creates interaction terms such as:
 
 ```python
-chicken_length = Chicken * Length
+chicken_comp = Chicken * Length
 ```
 
-These interaction columns allow the model to learn how **each centimeter of each sandwich type** influences the final price.
+This allows the model to learn **how each centimeter of each sandwich category influences the final price**.
 
-The model is trained with:
+The model is trained using:
 
 ```python
 LinearRegression(fit_intercept=False)
 ```
 
-This guarantees that the predicted price for a **0cm sandwich is $0**, preserving perfect proportionality.
+Disabling the intercept guarantees that:
+
+> **A sandwich with 0 cm has a price of 0.**
+
+This preserves perfect mathematical proportionality in predictions.
 
 ---
 
 ## 🧪 Proportionality Tests
 
-The project includes tests to verify that predicted prices are **identical** to training data prices, ensuring mathematical consistency.
+The application includes validation tests to ensure that predicted prices remain mathematically consistent with training data.
 
 Example:
 
 | Flavor  | Length (cm) | Real Price | Predicted Price | Difference | Status |
-| :------ | :---------: | :--------: | :-------------: | :--------: | :----: |
-| Chicken |      15     |    18.30   |      18.30      |    0.00    |    ✅   |
-| Chicken |      30     |    36.60   |      36.60      |    0.00    |    ✅   |
+| ------- | ----------- | ---------- | --------------- | ---------- | ------ |
+| Chicken | 15          | 18.30      | 18.30           | 0.00       | ✅      |
+| Chicken | 30          | 36.60      | 36.60           | 0.00       | ✅      |
+
+The model checks whether prediction errors are extremely close to zero using:
+
+```python
+np.isclose(error, 0, atol=1e-2)
+```
 
 ---
 
 ## 💻 Interactive Interface
 
-The **Streamlit** app allows users to:
+The **Streamlit application** allows users to:
 
-✅ Choose the sandwich type
+✅ Select the sandwich type
 
-✅ Enter any desired length (20cm, 40cm, etc.)
+✅ Enter a custom sandwich length (20 cm, 40 cm, etc.)
 
-✅ Instantly see the predicted price in real time
+✅ Instantly view the predicted price in real time
 
 ---
 
-## ✨ Author
+## 👩‍💻 Author
 
 **Marina Kally**
 🔗 LinkedIn: https://www.linkedin.com/in/marina-kally-695535252
