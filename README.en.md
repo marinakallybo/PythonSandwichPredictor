@@ -1,5 +1,7 @@
 # 🥪 Sandwich Price Predictor
 
+🇧🇷 [Versão em Português](README.md)
+
 ### *A Linear Regression model to predict sandwich prices based on type and length (cm).*
 
 ---

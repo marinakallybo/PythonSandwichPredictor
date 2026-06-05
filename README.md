@@ -1,5 +1,7 @@
 # 🥪 Previsor de Preço de Lanches
 
+🇺🇸 [English version](README.en.md)
+
 ### *Um modelo de Regressão Linear para prever o preço de lanches de acordo com o tipo e o comprimento (em cm).*
 
 ---
