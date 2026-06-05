@@ -192,7 +192,6 @@ The **Streamlit application** allows users to:
 
 ---
 
-## 👩‍💻 Author
+## 📄 License
 
-**Marina Kally**
-🔗 LinkedIn: https://www.linkedin.com/in/marina-kally-695535252
+MIT License. Feel free to use, modify, and distribute.

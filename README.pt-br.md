@@ -194,10 +194,9 @@ A aplicação desenvolvida com **Streamlit** permite que o usuário:
 
 ---
 
-## 👩‍💻 Autora
+## 📄 Licença
 
-**Marina Kally**
-🔗 [LinkedIn](https://www.linkedin.com/in/marina-kally-695535252)
+Licença MIT. Sinta-se livre para usar, modificar e distribuir.
 
 
 
