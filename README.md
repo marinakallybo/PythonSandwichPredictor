@@ -1,165 +1,166 @@
-# 🥪 Previsor de Preço de Lanches
+# 🥪 Sandwich Price Predictor
 
-🇺🇸 [English version](README.en.md)
+🇧🇷 [Versão em Português](README.pt-br.md)
 
-### *Um modelo de Regressão Linear para prever o preço de lanches de acordo com o tipo e o comprimento (em cm).*
-
----
-
-## 💡 Ideia Principal
-
-Tudo começou com uma curiosidade:
-
-> “E se eu quisesse um lanche de 20cm ou 40cm? Quanto custaria?” 🤔
-
-Sabemos que o **Subway** trabalha com tamanhos de **15cm** e **30cm**, e em alguns casos o preço do de 30cm é **o dobro** do de 15cm.
-Então pensei:
-
-> “Será que consigo criar um modelo que calcule automaticamente o preço proporcional de qualquer tamanho de lanche?”
-
-Foi aí que nasceu o **Previsor de Preço de Lanches**, um projeto que une **Python + Machine Learning (Regressão Linear)** para prever o preço de diferentes tipos de lanches com base no seu comprimento.
+### *A Linear Regression model to predict sandwich prices based on type and length (cm).*
 
 ---
 
-## ⚙️ Tecnologias Utilizadas
+## 💡 Main Idea
+
+Everything started with a simple curiosity:
+
+> “What if I wanted a 20cm or even a 40cm sandwich? How much would it cost?” 🤔
+
+We know that **Subway** usually offers sandwiches in **15cm** and **30cm** sizes, and in some cases, the 30cm option costs **exactly twice** as much as the 15cm one.
+
+That made me wonder:
+
+> “Could I build a model capable of automatically calculating the proportional price of any sandwich size?”
+
+That’s how the **Sandwich Price Predictor** was born — a project that combines **Python + Machine Learning (Linear Regression)** to predict the price of different sandwich types based on their length.
+
+---
+
+## ⚙️ Technologies Used
 
 * 🐍 **Python 3.11+**
-* 📦 **Pandas** — manipulação e análise dos dados
-* 🧠 **Scikit-learn** — criação e treino do modelo de regressão linear
-* 🌐 **Streamlit** — construção da interface web interativa
-* ⚙️ **Poetry** — gerenciamento de dependências e ambiente virtual
+* 📦 **Pandas** — data manipulation and analysis
+* 🧠 **Scikit-learn** — building and training the linear regression model
+* 🌐 **Streamlit** — interactive web interface
+* ⚙️ **Poetry** — dependency and virtual environment management
 
 ---
 
-## 💻 Como Executar o Projeto
+## 💻 Running the Project
 
-### 🔹 1. Clonar o repositório
+### 🔹 1. Clone the repository
+
 ```bash
 git clone https://github.com/marinakallybo/Previsor-Pre-os-Lanches.git
-cd .\Previsor-Pre-os-Lanches\
-````
+cd Previsor-Pre-os-Lanches
+```
 
-### 🔹 2. Instalar o Poetry (caso ainda não tenha)
+### 🔹 2. Install Poetry (if not installed)
 
 ```bash
 pip install poetry
 ```
 
-### 🔹 3. Instalar as dependências
+### 🔹 3. Install dependencies
 
 ```bash
 poetry install
 ```
 
-### 🔹 4. Ativar o ambiente virtual
+### 🔹 4. Activate the virtual environment
 
 ```bash
 poetry shell
 ```
 
-### 🔹 5. Rodar o app
+### 🔹 5. Run the app
 
 ```bash
 streamlit run app.py
 ```
 
-Após isso, o Streamlit abrirá automaticamente no navegador. 🎉
+After that, Streamlit will automatically open in your browser. 🎉
 
 ---
 
-## 🧩 Estrutura do Projeto
+## 🧩 Project Structure
 
-```
-📂 PROJETO-ML/
-├── 📁 .venv/               # Ambiente virtual (criado automaticamente pelo Poetry)
-├── 📁 src/                 # Módulos auxiliares (opcional)
-├── 📁 tests/               # Testes automáticos
+```text
+📂 PROJECT-ML/
+├── 📁 .venv/               # Virtual environment (created automatically by Poetry)
+├── 📁 src/                 # Helper modules (optional)
+├── 📁 tests/               # Automated tests
 │
-├── 📄 app.py               # Aplicação principal (modelo + interface)
-├── 📄 lanches.csv          # Base de dados (lanches + preços)
-├── 📄 pyproject.toml       # Configuração do Poetry e dependências
-├── 📄 poetry.lock          # Controle de versões exatas
-└── 📄 README.md            # Documentação do projeto
+├── 📄 app.py               # Main application (model + interface)
+├── 📄 lanches.csv          # Dataset (sandwiches + prices)
+├── 📄 pyproject.toml       # Poetry configuration and dependencies
+├── 📄 poetry.lock          # Exact dependency versions
+└── 📄 README.md            # Project documentation
 ```
 
 ---
 
-## 🍞 Conjunto de Dados
+## 🍞 Dataset
 
-O arquivo `lanches.csv` foi criado com base nos lanches do **Subway**.
-Foram selecionados **5 tipos de lanches**:
+The `lanches.csv` dataset was created based on **Subway sandwiches**.
 
-* Frango
-* Frango Teriyaki
-* Carne Seca com Cream Cheese
-* Vegetariano
-* Steak Churrasco
+The project includes **5 sandwich types**:
 
-Cada lanche possui valores de **comprimento (15 e 30 cm)** e **preço proporcional**.
-O formato da base utiliza **One-Hot Encoding**, onde cada tipo de lanche é representado por uma coluna com valores 0 ou 1 — assim o modelo entende variáveis categóricas corretamente.
+* Chicken
+* Chicken Teriyaki
+* Shredded Beef with Cream Cheese
+* Vegetarian
+* Steak Barbecue
 
-Exemplo:
+Each sandwich contains values for **length (15cm and 30cm)** and **proportional price**.
 
-| Frango | Frango Teriyaki | Carne Seca com Cream Cheese | Vegetariano | Steak Churrasco | comprimento | preço |
-| :----: | :-------------: | :-------------------------: | :---------: | :-------------: | :---------: | :---: |
-|    1   |        0        |              0              |      0      |        0        |      15     | 18.30 |
-|    1   |        0        |              0              |      0      |        0        |      30     | 36.60 |
-|    0   |        1        |              0              |      0      |        0        |      15     | 25.20 |
-|    0   |        1        |              0              |      0      |        0        |      30     | 44.10 |
+The dataset uses **One-Hot Encoding**, where each sandwich type is represented as a column containing `0` or `1`. This helps the model correctly understand categorical variables.
+
+Example:
+
+| Chicken | Chicken Teriyaki | Shredded Beef + Cream Cheese | Vegetarian | Steak Barbecue | Length | Price |
+| :-----: | :--------------: | :--------------------------: | :--------: | :------------: | :----: | :---: |
+|    1    |         0        |               0              |      0     |        0       |   15   | 18.30 |
+|    1    |         0        |               0              |      0     |        0       |   30   | 36.60 |
+|    0    |         1        |               0              |      0     |        0       |   15   | 25.20 |
+|    0    |         1        |               0              |      0     |        0       |   30   | 44.10 |
 
 ---
 
-## 🧠 Funcionamento do Modelo
+## 🧠 Model Logic
 
-O modelo utiliza **Regressão Linear Composta**, garantindo que o **preço aumente proporcionalmente** ao comprimento do lanche.
-Ele cria termos de interação entre o tipo e o comprimento, como:
+The model uses **Multiple Linear Regression**, ensuring that the **price increases proportionally** to the sandwich length.
+
+It creates interaction terms between sandwich type and length, such as:
 
 ```python
-frango_comp = Frango * Comprimento
+chicken_length = Chicken * Length
 ```
 
-Essas colunas permitem que o modelo aprenda quanto **cada cm de cada tipo de lanche** influencia no preço final.
-O modelo é treinado com:
+These interaction columns allow the model to learn how **each centimeter of each sandwich type** influences the final price.
+
+The model is trained with:
 
 ```python
 LinearRegression(fit_intercept=False)
 ```
 
-Isso assegura que o preço de 0 cm seja 0 — mantendo a proporcionalidade perfeita.
+This guarantees that the predicted price for a **0cm sandwich is $0**, preserving perfect proportionality.
 
 ---
 
-## 🧪 Testes de Proporcionalidade
+## 🧪 Proportionality Tests
 
-O projeto inclui testes que verificam se o preço previsto é **idêntico** ao preço real dos dados de treino, garantindo total coerência matemática.
+The project includes tests to verify that predicted prices are **identical** to training data prices, ensuring mathematical consistency.
 
-Exemplo:
+Example:
 
-| Sabor  | Comprimento (cm) | Preço Real | Preço Previsto | Diferença | Status |
-| :----- | :--------------: | :--------: | :------------: | :-------: | :----: |
-| Frango |        15        |    18.3    |      18.3      |    0.00   |    ✅   |
-| Frango |        30        |    36.6    |      36.6      |    0.00   |    ✅   |
-
----
-
-## 💻 Interface Interativa
-
-A aplicação em **Streamlit** permite que o usuário:
-
-✅ Escolha o tipo de lanche
-
-✅ Digite o comprimento desejado (20 cm, 40 cm, etc.)
-
-✅ Veja o preço previsto em tempo real
+| Flavor  | Length (cm) | Real Price | Predicted Price | Difference | Status |
+| :------ | :---------: | :--------: | :-------------: | :--------: | :----: |
+| Chicken |      15     |    18.30   |      18.30      |    0.00    |    ✅   |
+| Chicken |      30     |    36.60   |      36.60      |    0.00    |    ✅   |
 
 ---
 
-## ✨ Autora
+## 💻 Interactive Interface
+
+The **Streamlit** app allows users to:
+
+✅ Choose the sandwich type
+
+✅ Enter any desired length (20cm, 40cm, etc.)
+
+✅ Instantly see the predicted price in real time
+
+---
+
+## ✨ Author
 
 **Marina Kally**
-🔗 [LinkedIn](https://www.linkedin.com/in/marina-kally-695535252)
-
-
-
-
-
+🔗 LinkedIn: https://www.linkedin.com/in/marina-kally-695535252

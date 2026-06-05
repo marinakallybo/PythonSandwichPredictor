@@ -1,0 +1,62 @@
+```gitignore
+# ==========================
+# Virtual Environment
+# ==========================
+myvenv/
+
+# ==========================
+# Python cache
+# ==========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ==========================
+# Distribution / Packaging
+# ==========================
+build/
+dist/
+*.egg-info/
+
+# ==========================
+# IDE / Editor
+# ==========================
+.vscode/
+.idea/
+
+# ==========================
+# Environment variables
+# ==========================
+.env
+
+# ==========================
+# OS files
+# ==========================
+.DS_Store
+Thumbs.db
+
+# ==========================
+# Testing
+# ==========================
+.pytest_cache/
+.mypy_cache/
+```
+
+# Virtual environment
+myvenv/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# VS Code
+.vscode/
+
+# Environment files
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
